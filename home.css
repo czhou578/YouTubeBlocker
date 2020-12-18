@@ -1,0 +1,63 @@
+/*checked*/
+#video-title-link ytd-rich-grid-media[mini-mode] h3.ytd-rich-grid-media {
+  cursor: pointer;
+  pointer-events: none;
+}
+
+/*checked*/
+#details.ytd-rich-grid-media {
+  cursor: default;
+  pointer-events: none;
+  
+}
+
+.title.ytd-guide-entry-renderer, img.yt-img-shadow, ytd-guide-entry-renderer[line-end-style=dot] #newness-dot.ytd-guide-entry-renderer {
+  visibility: hidden;
+}
+
+ytd-guide-entry-renderer, #guide-section-title.ytd-guide-section-renderer {
+  cursor: default;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+/*checked*/
+#video-title.ytd-rich-grid-media {
+  visibility: hidden;
+}
+
+/* checked */
+#avatar.ytd-rich-grid-media {
+  visibility: hidden;
+}
+
+/* checked */
+.badge.ytd-badge-supported-renderer {
+  visibility: hidden;
+}
+
+/* checked */
+#button.ytd-menu-renderer yt-icon.ytd-menu-renderer {
+  visibility: hidden;
+}
+
+/* checked */
+ytd-thumbnail #thumbnail.ytd-thumbnail { 
+  visibility: hidden;
+}
+
+/*checked*/
+ytd-thumbnail.ytd-rich-grid-media:before {
+  visibility: hidden;
+}
+/*checked*/
+#text-container.ytd-channel-name, ytd-rich-grid-media[mini-mode] #video-title.ytd-rich-grid-media {
+  visibility: hidden;
+}
+
+/*checked*/
+ytd-video-meta-block.grid #metadata.ytd-video-meta-block, ytd-video-meta-block.compact #metadata.ytd-video-meta-block,
+ .ytd-video-meta-block[meta-block].grid.ytd-video-meta-block #metadata.ytd-video-meta-block, 
+.ytd-video-meta-block[meta-block].compact.ytd-video-meta-block #metadata.ytd-video-meta-block {
+  visibility: hidden;
+}

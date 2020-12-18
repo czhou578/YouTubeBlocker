@@ -1,0 +1,47 @@
+{
+  "name": "YouTube Recommendations Blocker",
+  "version": "1.0",
+  "description": "My first extension!",
+
+  "background": {
+    "scripts": ["background.js"],
+    "persistent" : false
+  },
+
+  "content_scripts": [
+
+    {
+      "matches": ["*://www.youtube.com/results*"],
+      "css": ["results.css"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+
+    },
+  
+    {
+      "matches": ["https://www.youtube.com/"],
+      "css": ["home.css"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    },
+
+    {
+      "css": ["videoRec.css"],
+      "matches": ["https://www.youtube.com/watch*"],
+      "run_at": "document_idle"
+    }
+
+
+  ],
+
+  "permissions": ["declarativeContent", "activeTab", "contentSettings", "webNavigation", "*://www.youtube.com/results*", "https://www.youtube.com/"],
+  "page_action": {
+    "default_popup": "popupIndex.html",
+    "default_icon": "firefox-developer-icon-icon.png",
+    "default_title": "Stop watching YouTube! Only works on YouTube."
+  },
+
+  "manifest_version": 2
+
+
+}

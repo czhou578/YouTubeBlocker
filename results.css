@@ -1,0 +1,25 @@
+
+ytd-video-renderer[use-prominent-thumbs] ytd-thumbnail.ytd-video-renderer {
+  visibility: visible !important;
+}
+
+ytd-thumbnail #thumbnail.ytd-thumbnail {
+  visibility: visible !important;
+}
+
+img.yt-img-shadow {
+  visibility: visible !important;
+}
+
+.yt-simple-endpoint {
+  display: block;
+  visibility: visible !important;
+}
+
+#metadata-line.ytd-video-meta-block span.ytd-video-meta-block {
+  visibility: visible !important;
+}
+
+#text-container.ytd-channel-name, ytd-rich-grid-media[mini-mode] #video-title.ytd-rich-grid-media {
+  visibility: visible !important;
+}
