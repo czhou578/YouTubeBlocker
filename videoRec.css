@@ -52,3 +52,11 @@ a.yt-simple-endpoint.ytd-button-renderer {
 #button.ytd-button-renderer yt-icon.ytd-button-renderer + yt-formatted-string.ytd-button-renderer, ytd-button-renderer yt-formatted-string.ytd-button-renderer {
   visibility: visible !important;
 }
+
+#text.ytd-channel-name {
+  visibility: hidden !important;
+}
+
+ytd-toggle-button-renderer #button.ytd-toggle-button-renderer {
+  visibility: visible !important;
+}

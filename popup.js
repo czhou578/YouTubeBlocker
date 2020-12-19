@@ -19,7 +19,9 @@ function includeScript(file) {
 
 document.getElementById('hidden').addEventListener('click', function() {
   var paragraph = document.createElement('p');
-  paragraph.innerHTML = 'This extension blocks YouTube home video recommendations and watch recommendations. Stop distractions and take ownership of your life!';
+  paragraph.innerHTML = 'This extension blocks YouTube home video recommendations and watch recommendations. '
+  + 'Stop distractions and take ownership of your life! Once activated, this cannot be turned off unless you uninstall!';
+  paragraph.style.fontSize = '15px'
   document.body.appendChild(paragraph);
   includeScript('content.js');
   includeScript('background.js');

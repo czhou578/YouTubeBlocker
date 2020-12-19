@@ -61,3 +61,19 @@ ytd-video-meta-block.grid #metadata.ytd-video-meta-block, ytd-video-meta-block.c
 .ytd-video-meta-block[meta-block].compact.ytd-video-meta-block #metadata.ytd-video-meta-block {
   visibility: hidden;
 }
+
+#text.complex-string.ytd-channel-name {
+  visibility: hidden;
+}
+
+#additional-metadata-line.ytd-video-meta-block {
+  visibility: hidden;
+}
+
+ytd-toggle-button-renderer #button.ytd-toggle-button-renderer {
+  visibility: hidden;
+}
+
+#buttons.ytd-rich-grid-media > *.ytd-rich-grid-media {
+  visibility: hidden;
+}

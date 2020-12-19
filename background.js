@@ -17,28 +17,25 @@ chrome.runtime.onInstalled.addListener(function() {
   });
 });
 
-
-
 chrome.runtime.onMessage.addListener(function(response, sender, sendResponse) {
-  if (response.message == "terminate") {
-    chrome.tabs.removeCSS(null, {file: "home.css"});
-    history.go();
-    return;
-  }
+  // if (history.go(-1)) {
+  //   console.log('went back');
+  // }
 
   if (response.message == "results") {
+    console.log('received results!');
+    history.replaceState({userId: 1}, '', "/searched");
     chrome.tabs.removeCSS(null, {file: "videoRec.css"});
     chrome.tabs.insertCSS(null,{file:"results.css"});
-    console.log(response.message);
-
   }
 
   if (response.message == 'home') {
+    console.log('received home!')
     chrome.tabs.removeCSS(null,{file:"results.css"});
-    console.log
   }
 
   if (response.message == 'watch') {
+    console.log('received watch!')
     chrome.tabs.insertCSS(null, {file: "videoRec.css"});
   }
 })

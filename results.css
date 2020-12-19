@@ -4,7 +4,7 @@ ytd-video-renderer[use-prominent-thumbs] ytd-thumbnail.ytd-video-renderer {
 }
 
 ytd-thumbnail #thumbnail.ytd-thumbnail {
-  visibility: visible !important;
+  visibility: visible;
 }
 
 img.yt-img-shadow {
@@ -16,7 +16,12 @@ img.yt-img-shadow {
   visibility: visible !important;
 }
 
-#metadata-line.ytd-video-meta-block span.ytd-video-meta-block {
+ytd-thumbnail #thumbnail.ytd-thumbnail yt-img-shadow.ytd-thumbnail {
+  visibility: visible;
+}
+
+/* watch this */
+#metadata-line.ytd-video-meta-block span.ytd-video-meta-block { 
   visibility: visible !important;
 }
 
