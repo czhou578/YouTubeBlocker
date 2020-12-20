@@ -16,9 +16,10 @@ function messageBackground() {
         chrome.runtime.sendMessage({message: 'home'});
         
       } else if (window.location.href.includes('/results')) { //inject css
-        
+        history.pushState({id: 'results'}, '', 'searchedVideos');       
         chrome.runtime.sendMessage({message: 'results'});
         console.log('working 2');
+
       } else if (window.location.href.includes('/watch')) {
         chrome.runtime.sendMessage({message: 'watch'});
       }
@@ -29,16 +30,29 @@ function messageBackground() {
 
 }
 
-var p;
-if (window.performance.getEntriesByType("navigation")) {
-  p = window.performance.getEntriesByType("navigation")[0].type;
-  if (p == 'reload') {
-    console.log('reloaded');
-    messageBackground();
+// window.addEventListener('popstate', function (event) {
+//   if (history.state && history.state.id === 'homepage') {
+//       location.reload();
+//       console.log('switched pages')
+//   }
+// }, false);
 
-  }
+var p;
+var perfEntries = performance.getEntriesByType("navigation");
+//console.log(perfEntries);
+if (perfEntries[0].type == "reload" && window.location.href.includes('/results')) {
+  chrome.runtime.sendMessage({message: 'results refreshed'});
+
+  //console.log('wwrong');
 }
+
+
+// if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
+
+// }
+
 messageBackground();
+
 
 
 

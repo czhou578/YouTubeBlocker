@@ -21,12 +21,17 @@ chrome.runtime.onMessage.addListener(function(response, sender, sendResponse) {
   // if (history.go(-1)) {
   //   console.log('went back');
   // }
+  if (response.message == "results refreshed") {
+    console.log('new results received');
+    chrome.tabs.insertCSS(null,{file:"results.css"});
+  }
 
   if (response.message == "results") {
-    console.log('received results!');
     history.replaceState({userId: 1}, '', "/searched");
+    chrome.tabs.removeCSS(null, {file: "home.css"});
     chrome.tabs.removeCSS(null, {file: "videoRec.css"});
     chrome.tabs.insertCSS(null,{file:"results.css"});
+    console.log('received results!');
   }
 
   if (response.message == 'home') {
