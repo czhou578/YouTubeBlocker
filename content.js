@@ -1,6 +1,20 @@
 
 
 function messageBackground() {
+  window.onload = function() {
+    if (window.location.href == 'https://www.youtube.com/') {
+      history.pushState({}, '', './statehome');
+
+    } else if (window.location.href.includes('/results')) {
+      // chrome.webNavigation.onHistoryStateUpdated.addListener(function(details) {
+      //   console.log('changedstate');
+      // });
+      console.log('bts')
+      history.replaceState({}, '', './stateresult');
+
+    }
+
+  }
   window.addEventListener('yt-navigate-start', function() {
 
     // chrome.runtime.connect().onDisconnect.addListener(function() {
@@ -8,27 +22,32 @@ function messageBackground() {
     //   console.log('disconnected');
     //   // clean up when content script gets disconnected
     // })
-
-    
-    if (chrome.runtime.lastError) {
-      setTimeout(messageBackground, 1000);
+    // if (window.readyState === "complete") {
       
-    } else {
-      if (window.location.href == 'https://www.youtube.com/') { //don't inject
-        var port = chrome.runtime.connect({name: "colin"});
-        port.postMessage({joke: "hey wassup"});
-        //chrome.runtime.sendMessage({message: 'home'});
-        
-      } else if (window.location.href.includes('/results')) { //inject css
-        history.pushState({id: 'results'}, '', 'searchedVideos');       
-        chrome.runtime.sendMessage({message: 'results'});
-        console.log('working 2');
+    // }
 
-      } else if (window.location.href.includes('/watch')) {
-        chrome.runtime.sendMessage({message: 'watch'});
-      }
+    if (window.location.href == 'https://www.youtube.com/') { //don't inject
+    history.pushState({}, '', './statehome')
+    chrome.runtime.sendMessage({message: 'home'});
+    var port = chrome.runtime.connect({name: "colin"});
+    port.postMessage({joke: "hey wassup"});
+    console.log('testing');
+    
+  } else if (window.location.href.includes('/results')) { //inject css
+      //history.pushState({id: 'results'}, '', 'searchedVideos');       
+      chrome.runtime.sendMessage({message: 'results'});
+      console.log('working 2');
 
+    } else if (window.location.href.includes('/watch')) {
+      chrome.runtime.sendMessage({message: 'watch'});
     }
+    
+    // if (chrome.runtime.lastError) {
+    //   setTimeout(messageBackground, 1000);
+      
+    // } else {
+
+    // }
   
    })
 
@@ -51,19 +70,7 @@ var perfEntries = performance.getEntriesByType("navigation");
 
 messageBackground();
 
-// {
-//   "matches": ["*://www.youtube.com/results*"],
-//   "css": ["results.css"],
-//   "js": ["content.js"],
-//   "run_at": "document_idle"
 
-// },
-
-// {
-//   "css": ["videoRec.css"],
-//   "matches": ["https://www.youtube.com/watch*"],
-//   "run_at": "document_idle"
-// }
 
 
 
