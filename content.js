@@ -8,12 +8,16 @@ function messageBackground() {
     //   console.log('disconnected');
     //   // clean up when content script gets disconnected
     // })
-  
+
+    
     if (chrome.runtime.lastError) {
       setTimeout(messageBackground, 1000);
+      
     } else {
       if (window.location.href == 'https://www.youtube.com/') { //don't inject
-        chrome.runtime.sendMessage({message: 'home'});
+        var port = chrome.runtime.connect({name: "colin"});
+        port.postMessage({joke: "hey wassup"});
+        //chrome.runtime.sendMessage({message: 'home'});
         
       } else if (window.location.href.includes('/results')) { //inject css
         history.pushState({id: 'results'}, '', 'searchedVideos');       
@@ -30,21 +34,15 @@ function messageBackground() {
 
 }
 
-// window.addEventListener('popstate', function (event) {
-//   if (history.state && history.state.id === 'homepage') {
-//       location.reload();
-//       console.log('switched pages')
-//   }
-// }, false);
 
 var p;
 var perfEntries = performance.getEntriesByType("navigation");
 //console.log(perfEntries);
-if (perfEntries[0].type == "reload" && window.location.href.includes('/results')) {
-  chrome.runtime.sendMessage({message: 'results refreshed'});
+// if (perfEntries[0].type == "reload" && window.location.href.includes('/results')) {
+//   chrome.runtime.sendMessage({message: 'results refreshed'});
 
-  //console.log('wwrong');
-}
+//   //console.log('wwrong');
+// }
 
 
 // if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
@@ -52,6 +50,20 @@ if (perfEntries[0].type == "reload" && window.location.href.includes('/results')
 // }
 
 messageBackground();
+
+// {
+//   "matches": ["*://www.youtube.com/results*"],
+//   "css": ["results.css"],
+//   "js": ["content.js"],
+//   "run_at": "document_idle"
+
+// },
+
+// {
+//   "css": ["videoRec.css"],
+//   "matches": ["https://www.youtube.com/watch*"],
+//   "run_at": "document_idle"
+// }
 
 
 

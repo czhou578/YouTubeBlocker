@@ -9,28 +9,13 @@
   },
 
   "content_scripts": [
-
-    {
-      "matches": ["*://www.youtube.com/results*"],
-      "css": ["results.css"],
-      "js": ["content.js"],
-      "run_at": "document_idle"
-
-    },
   
     {
-      "matches": ["https://www.youtube.com/"],
+      "matches": ["*://www.youtube.com/*"],
       "css": ["home.css"],
       "js": ["content.js"],
       "run_at": "document_idle"
-    },
-
-    {
-      "css": ["videoRec.css"],
-      "matches": ["https://www.youtube.com/watch*"],
-      "run_at": "document_idle"
     }
-
 
   ],
 

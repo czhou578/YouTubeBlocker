@@ -3,7 +3,7 @@ img.yt-img-shadow {
 }
 
 ytd-compact-video-renderer #video-title.ytd-compact-video-renderer {
-  visibility: hidden;
+  visibility: hidden !important;
 }
 
 #text-container.ytd-channel-name {
@@ -60,3 +60,4 @@ a.yt-simple-endpoint.ytd-button-renderer {
 ytd-toggle-button-renderer #button.ytd-toggle-button-renderer {
   visibility: visible !important;
 }
+
