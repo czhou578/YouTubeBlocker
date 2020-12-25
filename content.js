@@ -40,12 +40,11 @@ console.log('sun rui')
     } else if ('/watch' === location.pathname) {
       chrome.runtime.sendMessage({message: 'watch'});
       
+    } else if (window.location.href.includes('/user')) {
+      chrome.runtime.sendMessage({message: 'user'});
     }
     
     return true
-    // chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    //   console.log(message)
-    // });      
     
   }
   

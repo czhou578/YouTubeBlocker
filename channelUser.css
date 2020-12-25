@@ -1,0 +1,16 @@
+ytd-thumbnail #thumbnail.ytd-thumbnail {
+  visibility: visible !important;
+}
+
+img.yt-img-shadow {
+  visibility: visible !important;
+}
+
+#text-container.ytd-channel-name {
+  visibility: visible !important;
+}
+
+#container.ytd-channel-name {
+  visibility: visible !important;
+  display: block !important;
+}

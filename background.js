@@ -30,6 +30,11 @@ chrome.webNavigation.onHistoryStateUpdated.addListener(function(details) {
       console.log('received home!')
   
     }
+
+    if (response.message === "user") {
+      console.log('users');
+      chrome.tabs.insertCSS(null, {file: "channelUser.css"});
+    }
   
   })
 });
