@@ -27,6 +27,7 @@ ytd-thumbnail #thumbnail.ytd-thumbnail yt-img-shadow.ytd-thumbnail {
 
 #text-container.ytd-channel-name, ytd-rich-grid-media[mini-mode] #video-title.ytd-rich-grid-media {
   visibility: visible !important;
+  display: block !important;
 }
 
 yt-img-shadow.empty img.yt-img-shadow {

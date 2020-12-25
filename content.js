@@ -31,23 +31,24 @@ console.log('sun rui')
       // }
       
   function replyBack() {
-    chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-      console.log(message)
-      if (window.location.href.includes('/results')) {
-        chrome.runtime.sendMessage({message: 'results'});
-        
-      } else if (window.location.href === 'https://www.youtube.com/') {
-        chrome.runtime.sendMessage({message: 'home'});
-        
-      } else if ('/watch' === location.pathname) {
-        chrome.runtime.sendMessage({message: 'watch'});
-        
-      }
+    if (window.location.href.includes('/results')) {
+      chrome.runtime.sendMessage({message: 'results'});
       
-      return true
-    });      
+    } else if (window.location.href === 'https://www.youtube.com/') {
+      chrome.runtime.sendMessage({message: 'home'});
+      
+    } else if ('/watch' === location.pathname) {
+      chrome.runtime.sendMessage({message: 'watch'});
+      
+    }
+    
+    return true
+    // chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    //   console.log(message)
+    // });      
     
   }
+  
   replyBack();
       
   //setTimeout(replyBack, 2000);  

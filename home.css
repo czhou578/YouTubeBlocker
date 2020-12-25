@@ -96,7 +96,8 @@ yt-formatted-string[has-link-only_]:not([force-default-style]) a.yt-simple-endpo
 
 /*checked*/
 #container.ytd-channel-name {
-  visibility: hidden !important;
+  /* visibility: hidden !important; */
+  display: none !important;
 
 }
 

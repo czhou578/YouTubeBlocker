@@ -1,9 +1,10 @@
 
 chrome.webNavigation.onHistoryStateUpdated.addListener(function(details) {
+  chrome.tabs.executeScript(null,{file:"content.js"});
 
-  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-    chrome.tabs.sendMessage(tabs[0].id, {greeting: "hello"});
-  });
+  // chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+  //   chrome.tabs.sendMessage(tabs[0].id, {greeting: "hello"});
+  // });
   
   chrome.runtime.onMessage.addListener(function(response, sender, sendResponse) {
   
@@ -23,10 +24,10 @@ chrome.webNavigation.onHistoryStateUpdated.addListener(function(details) {
     
     if (response.message === "home") {
       //history.pushState({id: 0}, '', "https://wwww.youtube.com/homepage");
-      console.log('received home!')
       chrome.tabs.insertCSS(null, {file: "home.css", runAt:"document_end"});
       chrome.tabs.removeCSS(null,{file:"results.css"});
       chrome.tabs.removeCSS(null, {file: "videoRec.css"});
+      console.log('received home!')
   
     }
   
