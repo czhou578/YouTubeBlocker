@@ -1,65 +1,69 @@
 
-
-function messageBackground() {
-  if (window.location.href == 'https://www.youtube.com/') {
-    console.log('testingwerqwe')
-    history.pushState({id: 2}, '', './statehome');
-    console.log(history.state)
-  }
-
-  if (window.location.href.includes('/results')) {
-    // chrome.webNavigation.onHistoryStateUpdated.addListener(function(details) {
-    //   console.log('changedstate');
-    // });
-    //history.go(0);
-    console.log('bts')
-    history.replaceState({id: 1}, '', './stateresult');
-  }
-  window.addEventListener('yt-navigate-start', function() {
-    
-  //   if (window.location.href == 'https://www.youtube.com/') { //don't inject
-  //   history.pushState({}, '', './statehome')
-  //   chrome.runtime.sendMessage({message: 'home'});
-  //   var port = chrome.runtime.connect({name: "colin"});
-  //   port.postMessage({joke: "hey wassup"});
-  //   console.log('testing');
-    
-  // } else if (window.location.href.includes('/results')) { //inject css
-  //     //history.pushState({id: 'results'}, '', 'searchedVideos');       
-  //     chrome.runtime.sendMessage({message: 'results'});
-  //     console.log('working 2');
-
-  //   } else if (window.location.href.includes('/watch')) {
-  //     chrome.runtime.sendMessage({message: 'watch'});
-  //   }
-    
-    // if (chrome.runtime.lastError) {
-    //   setTimeout(messageBackground, 1000);
-      
-    // } else {
-
-    // }
+console.log('sun rui')
+// function messageBackground() {
+//   if (window.location.href == 'https://www.youtube.com/') {
+//     //history.replaceState({id: 0}, '',);
+//     chrome.runtime.sendMessage({message: 'home'});
+//   }
   
-   })
+//   window.addEventListener('yt-navigate-start', function() {
+//     if (window.location.href.includes('/results')) {
+//       //history.replaceState({id: 1}, '');
+//       chrome.runtime.sendMessage({message: 'results'});
 
-}
-
-
-var p;
-var perfEntries = performance.getEntriesByType("navigation");
-//console.log(perfEntries);
-// if (perfEntries[0].type == "reload" && window.location.href.includes('/results')) {
-//   chrome.runtime.sendMessage({message: 'results refreshed'});
-
-//   //console.log('wwrong');
+//     } else if ('/watch' === location.pathname) {
+//       //history.replaceState({id: 2}, '');
+//       chrome.runtime.sendMessage({message: 'watch'});
+//     }
+//   })
 // }
 
 
-// if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
+// window.onload = function() {
+  
+  //   if (window.location.href.includes('/results')) {
+    //     chrome.runtime.sendMessage({message: 'results'});
+    
+    //   } else if (window.location.href === 'https://www.youtube.com/') {
+      //     chrome.runtime.sendMessage({message: 'home'});
+      
+      //   }
+      // }
+      
+  function replyBack() {
+    chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+      console.log(message)
+      if (window.location.href.includes('/results')) {
+        chrome.runtime.sendMessage({message: 'results'});
+        
+      } else if (window.location.href === 'https://www.youtube.com/') {
+        chrome.runtime.sendMessage({message: 'home'});
+        
+      } else if ('/watch' === location.pathname) {
+        chrome.runtime.sendMessage({message: 'watch'});
+        
+      }
+      
+      return true
+    });      
+    
+  }
+  replyBack();
+      
+  //setTimeout(replyBack, 2000);  
+  
+  // function idChange() {
+  //   if (history.state && history.state.id === 1) {
+  //     console.log('id1')
+  //   } else if (history.state && history.state.id === 2) {
+  //     console.log('id2');
+  //   } else if (history.state && history.state.id === 0) {
+  //     console.log('id0');
+  //   }
 
-// }
+  // }
 
-messageBackground();
+//messageBackground();
 
 
 
