@@ -13,6 +13,9 @@
       
     } else if (window.location.href.includes('channel')) {
       chrome.runtime.sendMessage({message: 'channel'});
+
+    } else if (window.location.href.includes('=youtu.be')) {
+      chrome.runtime.sendMessage({message: 'outsideIn'});
     }
     
     return true

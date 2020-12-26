@@ -28,8 +28,16 @@ chrome.webNavigation.onHistoryStateUpdated.addListener(function(details) {
       chrome.tabs.removeCSS(null, {file: "videoRec.css"});
       chrome.tabs.insertCSS(null, {file: "channelUser.css"});
     }
-  
+
+    
   })
+});
+
+chrome.runtime.onMessage.addListener(function(response, sender, sendResponse) {
+  if (response.message === "outsideIn") {
+    chrome.tabs.insertCSS(null, {file: "videoRec.css"});
+  }
+
 });
 
 
