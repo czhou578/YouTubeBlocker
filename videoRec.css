@@ -61,3 +61,16 @@ ytd-toggle-button-renderer #button.ytd-toggle-button-renderer {
   visibility: visible !important;
 }
 
+ytd-playlist-custom-thumbnail-renderer, ytd-compact-playlist-renderer #video-title.ytd-compact-playlist-renderer {
+  visibility: hidden !important;
+}
+
+ytd-thumbnail-overlay-side-panel-renderer, yt-formatted-string.ytd-thumbnail-overlay-side-panel-renderer, yt-icon.ytd-thumbnail-overlay-side-panel-renderer {
+  visibility: hidden !important;
+}
+
+yt-img-shadow.empty img.yt-img-shadow {
+  visibility: hidden !important;
+  cursor: default !important;
+}
+

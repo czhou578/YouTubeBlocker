@@ -4,6 +4,7 @@ ytd-video-renderer[use-prominent-thumbs] ytd-thumbnail.ytd-video-renderer {
 }
 
 ytd-thumbnail #thumbnail.ytd-thumbnail {
+  cursor: pointer !important;
   visibility: visible !important;
 }
 

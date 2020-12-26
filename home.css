@@ -48,6 +48,7 @@ ytd-guide-entry-renderer, #guide-section-title.ytd-guide-section-renderer {
 
 /* checked */
 ytd-thumbnail #thumbnail.ytd-thumbnail { 
+  cursor: default !important;
   visibility: hidden !important;
 }
 
