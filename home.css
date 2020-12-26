@@ -118,3 +118,7 @@ ytd-video-meta-block, .ytd-video-meta-block[meta-block] {
 
 }
 
+#title.ytd-rich-shelf-renderer, #subtitle.ytd-rich-shelf-renderer {
+  visibility: hidden !important;
+}
+

@@ -10,6 +10,7 @@ chrome.webNavigation.onHistoryStateUpdated.addListener(function(details) {
     }
   
     if (response.message === "watch") {
+      chrome.tabs.removeCSS(null, {file: "videoRec.css"});
       chrome.tabs.insertCSS(null, {file: "videoRec.css"});
     }
     

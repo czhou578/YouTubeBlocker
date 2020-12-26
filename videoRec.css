@@ -30,6 +30,7 @@ ytd-thumbnail #thumbnail.ytd-thumbnail yt-img-shadow.ytd-thumbnail {
   cursor: pointer !important;
   pointer-events: none !important;
   visibility: hidden !important;
+  display: none !important;
 }
 
 ytd-thumbnail #thumbnail.ytd-thumbnail {
@@ -79,6 +80,14 @@ yt-img-shadow.empty img.yt-img-shadow {
 }
 
 #movie-title.ytd-compact-movie-renderer, .movie-metadata.ytd-compact-movie-renderer {
+  visibility: hidden !important;
+}
+
+#name.ytd-author-comment-badge-renderer {
+  visibility: visible !important;
+}
+
+ytd-compact-video-renderer:not([watch-feed-big-thumbs]) ytd-thumbnail.ytd-compact-video-renderer {
   visibility: hidden !important;
 }
 
