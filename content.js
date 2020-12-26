@@ -10,6 +10,9 @@
       
     } else if (window.location.href.includes('/user')) {
       chrome.runtime.sendMessage({message: 'user'});
+      
+    } else if (window.location.href.includes('channel')) {
+      chrome.runtime.sendMessage({message: 'channel'});
     }
     
     return true
