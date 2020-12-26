@@ -78,3 +78,7 @@ yt-img-shadow.empty img.yt-img-shadow {
   visibility: hidden !important;
 }
 
+#movie-title.ytd-compact-movie-renderer, .movie-metadata.ytd-compact-movie-renderer {
+  visibility: hidden !important;
+}
+
