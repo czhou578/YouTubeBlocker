@@ -91,3 +91,7 @@ ytd-compact-video-renderer:not([watch-feed-big-thumbs]) ytd-thumbnail.ytd-compac
   visibility: hidden !important;
 }
 
+yt-img-shadow.ytd-playlist-video-thumbnail-renderer {
+  display: none !important;
+}
+
