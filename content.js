@@ -1,26 +1,38 @@
+
+  
   function replyBack() {
+    
+    var port = chrome.runtime.connect({name: "connection"});
+    port.onDisconnect.addListener(obj => {
+      if (chrome.runtime.lastError) {
+        setTimeout(replyBack, 1000)
+      }
+    })
+      
     if (window.location.href.includes('/results')) {
-      chrome.runtime.sendMessage({message: 'results'});
+      port.postMessage({msg: "results"})
       
     } else if (window.location.href === 'https://www.youtube.com/') {
-      chrome.runtime.sendMessage({message: 'home'});
+      port.postMessage({msg: "home"})
+      console.log('posted')
       
     } else if ('/watch' === location.pathname) {
-      chrome.runtime.sendMessage({message: 'watch'});
+      port.postMessage({msg: "watch"})
       
     } else if (window.location.href.includes('/user')) {
-      chrome.runtime.sendMessage({message: 'user'});
+      port.postMessage({msg: "user"})
       
     } else if (window.location.href.includes('channel')) {
-      chrome.runtime.sendMessage({message: 'channel'});
-
+      port.postMessage({msg: "channel"})
+      
     } else if (window.location.href.includes('=youtu.be')) {
-      chrome.runtime.sendMessage({message: 'outsideIn'});
+      port.postMessage({msg: "outsideIn"})
     }
     
     return true
     
   }
+
   
   replyBack();
 
