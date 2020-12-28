@@ -8,7 +8,7 @@ chrome.webNavigation.onHistoryStateUpdated.addListener(function(details) {
       if (msg.msg === "results") {
         chrome.tabs.removeCSS(null, {file: "home.css"});
         chrome.tabs.removeCSS(null, {file: "videoRec.css"});
-        chrome.tabs.insertCSS(null,{file:"results.css"});
+        chrome.tabs.insertCSS(null,{file:"results.css", runAt:"document_idle"});
         console.log('done')
 
       }
@@ -20,7 +20,7 @@ chrome.webNavigation.onHistoryStateUpdated.addListener(function(details) {
       }
 
       if (msg.msg === "home") {
-        chrome.tabs.insertCSS(null, {file: "home.css", runAt:"document_end"});
+        chrome.tabs.insertCSS(null, {file: "home.css", runAt:"document_idle"});
         chrome.tabs.removeCSS(null,{file:"results.css"});
         chrome.tabs.removeCSS(null, {file: "videoRec.css"});  
 
