@@ -14,7 +14,6 @@
       
     } else if (window.location.href === 'https://www.youtube.com/') {
       port.postMessage({msg: "home"})
-      console.log('posted')
       
     } else if ('/watch' === location.pathname) {
       port.postMessage({msg: "watch"})
@@ -27,7 +26,11 @@
       
     } else if (window.location.href.includes('=youtu.be')) {
       port.postMessage({msg: "outsideIn"})
-    }
+    } 
+
+    // window.onunload(function() {
+    //   port.postMessage({msg: "sendIT"});
+    // })
     
     return true
     

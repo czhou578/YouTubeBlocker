@@ -18,7 +18,7 @@
 
   ],
 
-  "permissions": ["declarativeContent", "activeTab", "contentSettings", "webNavigation", "*://www.youtube.com/results*", "https://www.youtube.com/", "*://www.youtube.com/watch*", "*://*/*"],
+  "permissions": ["declarativeContent", "activeTab", "tabs", "contentSettings", "webNavigation", "*://www.youtube.com/results*", "https://www.youtube.com/", "*://www.youtube.com/watch*", "*://*/*"],
   "page_action": {
     "default_popup": "popupIndex.html",
     "default_icon": "firefox-developer-icon-icon.png",

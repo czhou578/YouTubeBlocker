@@ -1,15 +1,14 @@
 
 chrome.webNavigation.onHistoryStateUpdated.addListener(function(details) {
   chrome.tabs.executeScript(null,{file:"content.js"});  
+
   chrome.runtime.onConnect.addListener(function(port) {
     console.assert(port.name == "connection");
     port.onMessage.addListener(function(msg) {
-
       if (msg.msg === "results") {
         chrome.tabs.removeCSS(null, {file: "home.css"});
         chrome.tabs.removeCSS(null, {file: "videoRec.css"});
         chrome.tabs.insertCSS(null,{file:"results.css", runAt:"document_idle"});
-        console.log('done')
 
       }
 
