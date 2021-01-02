@@ -37,6 +37,7 @@ chrome.webNavigation.onHistoryStateUpdated.addListener(function(details) {
       }
 
       if (msg.msg === "videos") {
+        chrome.tabs.removeCSS(null,{file:"results.css"});
         chrome.tabs.removeCSS(null, {file: "videoRec.css"});  
         chrome.tabs.insertCSS(null, {file: "UserVideos.css", runAt:"document_idle"});      
       }
