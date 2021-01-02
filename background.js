@@ -26,6 +26,7 @@ chrome.webNavigation.onHistoryStateUpdated.addListener(function(details) {
       }
 
       if (msg.msg === "user") {
+        chrome.tabs.removeCSS(null, {file: "videoRec.css"});  
         chrome.tabs.insertCSS(null, {file: "channelUser.css", runAt:"document_idle"});
       }
 
@@ -33,6 +34,11 @@ chrome.webNavigation.onHistoryStateUpdated.addListener(function(details) {
         chrome.tabs.removeCSS(null, {file: "videoRec.css"});
         chrome.tabs.insertCSS(null, {file: "channelUser.css", runAt:"document_idle"});
 
+      }
+
+      if (msg.msg === "videos") {
+        chrome.tabs.removeCSS(null, {file: "videoRec.css"});  
+        chrome.tabs.insertCSS(null, {file: "UserVideos.css", runAt:"document_idle"});      
       }
 
     });

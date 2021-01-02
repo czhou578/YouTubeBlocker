@@ -26,11 +26,10 @@
       
     } else if (window.location.href.includes('=youtu.be')) {
       port.postMessage({msg: "outsideIn"})
-    } 
 
-    // window.onunload(function() {
-    //   port.postMessage({msg: "sendIT"});
-    // })
+    } else if (window.location.href.includes('/videos')) {
+      port.postMessage({msg: "videos"});
+    }
     
     return true
     
