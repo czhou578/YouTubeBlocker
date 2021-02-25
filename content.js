@@ -35,8 +35,9 @@
     
   }
 
-  
   replyBack();
+
+  window.addEventListener('blur', replyBack);
 
 
 
